@@ -1,12 +1,19 @@
 import React from "react";
-import c from "classnames";
-import styles from "./AppStyles";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, Details, NotFound } from "./pages";
+import Layout from "./Layout";
 
 const App = () => {
   return (
-    <div>
-      <h1 className={c(styles.heading)}>Films by Category</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="details" element={<Details />} />
+          <Route path="*" component={NotFound} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

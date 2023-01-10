@@ -1,0 +1,7 @@
+@use "../../styles/mixins" as *;
+
+.container {
+  @include center-align;
+  position: sticky;
+  box-shadow: 0 0 5px 0 black;
+}

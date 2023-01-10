@@ -1,0 +1,13 @@
+@use "../../styles/constants" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $space-sm;
+
+  a {
+    padding-top: $space-lg;
+  }
+}

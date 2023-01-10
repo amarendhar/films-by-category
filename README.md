@@ -12,4 +12,4 @@ Open [http://localhost:3000](http://localhost:3000) in browser to view.
 Builds the app for production to the `build` folder.
 
 ### Technology Stack used
-`ReactJS, SCSS, Webpack`
+`ReactJS, SCSS`

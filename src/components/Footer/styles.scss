@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as *;
+@use "../../styles//constants" as *;
+
+.container {
+  @include center-align;
+
+  font-size: $font-sm;
+  font-weight: bold;
+  text-align: center;
+
+  padding: $space-md;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
