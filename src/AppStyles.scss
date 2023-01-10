@@ -1,0 +1,8 @@
+@use "./styles/constants" as *;
+@use "./styles/mixins" as *;
+
+.heading {
+  @include center-align;
+  padding: $space-lg;
+  color: orange;
+}
