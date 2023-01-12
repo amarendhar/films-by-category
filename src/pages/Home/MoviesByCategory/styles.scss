@@ -1,0 +1,14 @@
+@import "../../../styles/constants";
+
+.error {
+  margin: $space-lg;
+  font-size: $font-lg;
+  color: red;
+}
+
+.title {
+  font-size: $font-lg;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}

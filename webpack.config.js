@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDev = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: "development",
@@ -36,9 +36,7 @@ module.exports = {
         use: [
           // Fallback to style-loader in development
           {
-            loader: isDevelopment
-              ? "style-loader"
-              : MiniCssExtractPlugin.loader,
+            loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
@@ -53,6 +51,7 @@ module.exports = {
       },
     ],
   },
+  devtool: isDev ? "eval-cheap-module-source-map" : "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),

@@ -5,7 +5,7 @@ import styles from "./styles";
 const Header = () => {
   return (
     <header className={styles.container}>
-      <NavLink to={"/"}>Logo</NavLink>
+      <NavLink to={"/"}>Home</NavLink>
     </header>
   );
 };

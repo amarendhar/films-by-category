@@ -1,6 +1,6 @@
-@use "constants" as *;
-@use "mixins" as *;
-@use "typography" as *;
+@import "constants";
+@import "mixins";
+@import "typography";
 
 :global {
   html,
