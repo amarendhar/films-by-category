@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+// import { getMoviesURL } from "../../../constants";
 import _fetch from "../../../utils/_fetch";
 
-const useMoviesByCategory = ({ category }) => {
+const useMoviesByCategory = ({ category } = {}) => {
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    if (!category) return;
+
     const fetchMovies = async () => {
       try {
         setLoading(true);
@@ -26,7 +29,7 @@ const useMoviesByCategory = ({ category }) => {
     };
 
     fetchMovies();
-  }, []);
+  }, [category]);
 
   return {
     loading,

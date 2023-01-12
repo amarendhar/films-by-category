@@ -1,14 +1,4 @@
-import moviesByPopular from "../mocks/moviesByPopular";
-import moviesByTopRated from "../mocks/moviesByTopRated";
-import moviesByUpcoming from "../mocks/moviesByUpcoming";
-import moviesNotFound from "../mocks/moviesNotFound";
-import { MOVIE_CATEGORIES } from "../constants";
-
-const movies = {
-  [MOVIE_CATEGORIES.POPULAR]: moviesByPopular,
-  [MOVIE_CATEGORIES.TOPRATED]: moviesByTopRated,
-  [MOVIE_CATEGORIES.UPCOMING]: moviesByUpcoming,
-};
+import { mockMovies } from "../constants";
 
 const constructResJSON = (data) => {
   return {
@@ -23,12 +13,12 @@ const constructResJSON = (data) => {
 const _fetch = (category) =>
   new Promise((_res, _rej) => {
     setTimeout(() => {
-      const moviesByCategory = movies[category];
+      const moviesByCategory = mockMovies[category];
 
       if (moviesByCategory) {
         _res(constructResJSON(moviesByCategory));
       } else {
-        _res(constructResJSON(moviesNotFound));
+        _res(constructResJSON(mockMovies.notfound));
       }
     }, 100);
   });
