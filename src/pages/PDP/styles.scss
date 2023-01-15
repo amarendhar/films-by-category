@@ -24,9 +24,6 @@
   @include media(sm) {
     flex-direction: column;
   }
-  @include media(md) {
-    flex-direction: row;
-  }
 }
 
 .product-img {
@@ -60,6 +57,12 @@
 
 .product-details {
   width: 100%;
+
+  @include media(sm) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .product-description {

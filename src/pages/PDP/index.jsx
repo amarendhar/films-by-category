@@ -2,13 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Loader, Button } from "components";
 import usePDP from "./usePDP";
-import { getImageURL } from "utils/constants";
+import { STATUS, getImageURL } from "utils/constants";
 import styles from "./styles.scss";
 
 // Details/Description/Product-Description-Page(PDP)
 const PDP = () => {
   const { movieId } = useParams();
-  const { loading, movie, error } = usePDP({ movieId });
+  const { status, movie, error } = usePDP({ movieId });
 
   return (
     <section
@@ -18,7 +18,7 @@ const PDP = () => {
       aria-labelledby="product"
     >
       <div className={styles["product"]}>
-        <Loader loading={loading} error={error} />
+        <Loader loading={status === STATUS.PENDING} error={error} />
         {movie && (
           <>
             <h2

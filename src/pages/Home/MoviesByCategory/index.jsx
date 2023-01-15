@@ -2,12 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Loader } from "components";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { getImageURL } from "utils/constants";
+import { STATUS, getImageURL } from "utils/constants";
 import styles from "./styles.scss";
 
 // ToDo: NIT: Add `prop-types` npm to type-check the props.
 const MoviesByCategory = ({ title, category }) => {
-  const { loading, movies, error } = useMoviesByCategory({ category });
+  const { status, movies, error } = useMoviesByCategory({ category });
 
   return (
     <section
@@ -20,7 +20,7 @@ const MoviesByCategory = ({ title, category }) => {
         {title} Movies
       </h3>
       <div className={styles.list}>
-        <Loader loading={loading} error={error} />
+        <Loader loading={status === STATUS.PENDING} error={error} />
         {movies?.length > 0 &&
           movies.map(({ id, title, poster_path, vote_average }) => (
             <NavLink

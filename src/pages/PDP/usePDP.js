@@ -1,40 +1,21 @@
-import { useEffect, useState } from "react";
-// import { getMovieURL } from "utils/constants";
-import _fetch from "utils/_fetch";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { fetchMovieById, selectMovieById } from "store/slices/movieByIdSlice";
 
 const usePDP = ({ movieId } = {}) => {
-  const [loading, setLoading] = useState(false);
-  const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(false);
+  const dispatch = useAppDispatch();
+  const { status, error, data } = useAppSelector(selectMovieById);
 
   useEffect(() => {
-    if (!movieId) return;
-
-    const fetchMovies = async () => {
-      try {
-        setLoading(true);
-        // const res = await fetch(getMovieURL(movieId));
-        const res = await _fetch("movieId");
-        const data = await res.json();
-        setLoading(false);
-        data?.id
-          ? setMovie(data)
-          : setError(data?.status_message || ERROR_RESPONSE);
-      } catch (error) {
-        setLoading(false);
-        setMovie(null);
-        setError(error);
-        console.error(error);
-      }
-    };
-
-    fetchMovies();
+    if (movieId) {
+      dispatch(fetchMovieById(movieId));
+    }
   }, [movieId]);
 
   return {
-    loading,
-    movie,
+    status,
     error,
+    movie: data?.id ? data : null,
   };
 };
 

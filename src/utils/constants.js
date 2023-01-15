@@ -7,6 +7,13 @@ import {
   moviesInvalidRequest,
 } from "../mocks";
 
+export const STATUS = {
+  IDLE: "idle",
+  PENDING: "pending",
+  FULFILLED: "fulfilled",
+  REJECTED: "rejected",
+};
+
 export const MOVIE_CATEGORIES = {
   POPULAR: "popular",
   TOP_RATED: "top_rated",
@@ -34,6 +41,6 @@ export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 export const ERROR_RESPONSE = "The resource you requested could not be found.";
 export const getMoviesByCategoryURL = (category) =>
   `${BASE_URL}/${category}?api_key=${API_KEY}`;
-export const getMovieURL = (movieId) =>
+export const getMovieByIdURL = (movieId) =>
   `${BASE_URL}/${movieId}?api_key=${API_KEY}`;
 export const getImageURL = (path) => `${BASE_IMAGE_URL}/${path}`;

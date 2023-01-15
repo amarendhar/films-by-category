@@ -1,12 +1,12 @@
-import { renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "utils/test-utils";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "utils/constants";
+import { STATUS, MOVIE_CATEGORY_OPTIONS, mockMovies } from "utils/constants";
 
 describe("useMoviesByCategory", () => {
   const defaultProps = {
-    loading: false,
+    status: STATUS.IDLE,
+    error: null,
     movies: [],
-    error: false,
   };
 
   it("Should return defaultProps initially", () => {
@@ -22,9 +22,9 @@ describe("useMoviesByCategory", () => {
 
     await waitFor(() => {
       expect(result.current).toEqual({
-        loading: false,
+        ...defaultProps,
+        status: STATUS.FULFILLED,
         movies: mockMovies.popular.results,
-        error: false,
       });
     });
   });

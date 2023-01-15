@@ -1,12 +1,12 @@
-import { renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "utils/test-utils";
 import usePDP from "./usePDP";
-import { mockMovies } from "utils/constants";
+import { STATUS, mockMovies } from "utils/constants";
 
 describe("usePDP", () => {
   const defaultProps = {
-    loading: false,
+    status: STATUS.IDLE,
+    error: null,
     movie: null,
-    error: false,
   };
 
   it("Should return defaultProps initially", () => {
@@ -20,9 +20,9 @@ describe("usePDP", () => {
 
     await waitFor(() => {
       expect(result.current).toEqual({
-        loading: false,
+        ...defaultProps,
+        status: STATUS.FULFILLED,
         movie: mockMovies.movieId,
-        error: false,
       });
     });
   });

@@ -9,7 +9,9 @@
 @mixin media($size) {
   // Phones
   @if $size==sm {
-    @content;
+    @media (max-width: $screen-md) {
+      @content;
+    }
   }
 
   // Portrait-Tablets/Large-Phones
