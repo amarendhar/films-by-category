@@ -21,7 +21,7 @@ const MoviesByCategory = ({ title, category }) => {
       </h3>
       <div className={styles.list}>
         <Loader loading={status === STATUS.PENDING} error={error} />
-        {movies?.length > 0 &&
+        {status === STATUS.FULFILLED && movies?.length > 0 &&
           movies.map(({ id, title, poster_path, vote_average }) => (
             <NavLink
               key={id}

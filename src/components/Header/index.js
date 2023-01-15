@@ -1,11 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "store/hooks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { selectWishlist } from "store/slices/wishlistSlice";
 import styles from "./styles.scss";
 
 const Header = () => {
+  const { wishlistIds } = useAppSelector(selectWishlist);
+
   return (
     <header className={styles.container}>
       <NavLink to={"/"}>Home</NavLink>
+      <NavLink to={"/wishlist"}>
+        <FontAwesomeIcon
+          icon={faHeart}
+          size="lg"
+          color="white"
+          title="wishlist"
+        />
+        {wishlistIds.length > 0 && <span>&nbsp;({wishlistIds.length})</span>}
+      </NavLink>
     </header>
   );
 };

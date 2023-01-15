@@ -1,11 +1,14 @@
-@import "styles//constants";
+@import "styles/constants";
 @import "styles/mixins";
 
 .container {
   @include center-align;
+  justify-content: space-between;
   position: sticky;
   padding: $space-lg;
   background-color: black;
   color: white;
-  box-shadow: 0 0 5px 0 black;
+  box-shadow: $shadow-header;
+
+  font-size: $font-lg;
 }

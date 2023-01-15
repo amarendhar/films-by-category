@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Loader, Button } from "components";
 import usePDP from "./usePDP";
 import { STATUS, getImageURL } from "utils/constants";
@@ -8,7 +10,9 @@ import styles from "./styles.scss";
 // Details/Description/Product-Description-Page(PDP)
 const PDP = () => {
   const { movieId } = useParams();
-  const { status, movie, error } = usePDP({ movieId });
+  const { status, movie, error, isAddedToWishlist, handleWishList } = usePDP({
+    movieId,
+  });
 
   return (
     <section
@@ -19,7 +23,7 @@ const PDP = () => {
     >
       <div className={styles["product"]}>
         <Loader loading={status === STATUS.PENDING} error={error} />
-        {movie && (
+        {status === STATUS.FULFILLED && movie && (
           <>
             <h2
               id="product"
@@ -43,7 +47,18 @@ const PDP = () => {
                   <span>Rating</span>
                   <span>{movie.vote_average}/10</span>
                 </div>
-                <Button>Add to Wishlist</Button>
+                <Button onClick={handleWishList}>
+                  {isAddedToWishlist
+                    ? "Remove from Wishlist"
+                    : "Add to Wishlist"}
+                  &nbsp;
+                  <FontAwesomeIcon
+                    className={styles["stroke-transparent"]}
+                    icon={isAddedToWishlist ? faHeartCircleCheck : faHeart}
+                    size="lg"
+                    color="white"
+                  />
+                </Button>
               </div>
             </div>
           </>

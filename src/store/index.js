@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reduxLogger from "redux-logger";
-import moviesByCategorySlice from './slices/moviesByCategorySlice'
-import movieByIdSlice from './slices/movieByIdSlice'
+import moviesByCategorySlice from "./slices/moviesByCategorySlice";
+import movieByIdSlice from "./slices/movieByIdSlice";
+import wishlistSlice from "./slices/wishlistSlice";
 
 const isDev = process.env.NODE_ENV !== "production";
 const middlewares = [];
@@ -13,6 +14,7 @@ if (isDev) {
 export const rootReducer = {
   moviesByCategory: moviesByCategorySlice,
   movieById: movieByIdSlice,
+  wishlist: wishlistSlice,
 };
 
 export const store = configureStore({

@@ -12,6 +12,7 @@
 }
 
 .list {
+  position: relative;
   margin: $space-lg 0;
   display: flex;
   overflow-x: auto;
@@ -23,6 +24,8 @@
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
+  border-radius: $radii-lg;
+  box-shadow: $shadow-box;
   cursor: pointer;
 
   @include media(sm) {
@@ -55,6 +58,7 @@
 
 .list-item-info {
   text-align: center;
+  padding-bottom: $space-md;
 
   h5 {
     display: -webkit-box;

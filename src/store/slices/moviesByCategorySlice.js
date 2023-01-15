@@ -1,9 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  STATUS,
-  ERROR_RESPONSE,
-  getMoviesByCategoryURL,
-} from "utils/constants";
+import { STATUS, ERROR_RESPONSE } from "utils/constants";
 import _fetch from "utils/_fetch";
 
 const initialState = { status: STATUS.IDLE, error: null, data: {} };

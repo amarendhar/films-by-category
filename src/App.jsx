@@ -10,7 +10,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="p/:movieId" element={<PDP />} />
-          <Route path="*" component={NotFound} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
