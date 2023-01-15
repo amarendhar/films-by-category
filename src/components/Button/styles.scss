@@ -1,0 +1,34 @@
+@import "styles/constants";
+
+.button {
+  position: relative;
+  border: 0;
+  user-select: none;
+  border-radius: $radii-md;
+
+  padding: 8px 22px;
+  font-size: $font-md;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s, border 0.3s ease 0s;
+
+  background-color: $blue-700;
+  border: 1px solid $blue-700;
+
+  &:hover {
+    background-color: darken($blue-700, 10%);
+    border: 1px solid darken($blue-700, 10%);
+  }
+
+  &:active {
+    background-color: lighten($blue-700, 10%);
+    border: 1px solid lighten($blue-700, 10%);
+  }
+
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.26);
+    pointer-events: none;
+  }
+}

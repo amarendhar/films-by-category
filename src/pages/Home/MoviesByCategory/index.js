@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Loader } from "components";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { getImageURL } from "constants";
+import { getImageURL } from "utils/constants";
 import styles from "./styles.scss";
 
 // ToDo: NIT: Add `prop-types` npm to type-check the props.
@@ -16,18 +16,11 @@ const MoviesByCategory = ({ title, category }) => {
       role="group"
       aria-labelledby={category}
     >
-      <h3
-        id={category}
-        className={styles["section-title"]}
-      >
+      <h3 id={category} className={styles["section-title"]}>
         {title} Movies
       </h3>
       <div className={styles.list}>
-        {(loading || error) && (
-          <div className={styles.status}>
-            {loading ? <Loader /> : <div className={styles.error}>{error}</div>}
-          </div>
-        )}
+        <Loader loading={loading} error={error} />
         {movies?.length > 0 &&
           movies.map(({ id, title, poster_path, vote_average }) => (
             <NavLink

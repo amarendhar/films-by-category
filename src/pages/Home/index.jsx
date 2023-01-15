@@ -1,6 +1,6 @@
 import React from "react";
 import MoviesByCategory from "./MoviesByCategory";
-import { MOVIE_CATEGORY_OPTIONS } from "constants";
+import { MOVIE_CATEGORY_OPTIONS } from "utils/constants";
 
 const Home = () => {
   return (

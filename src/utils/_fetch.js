@@ -1,4 +1,4 @@
-import { mockMovies } from "constants";
+import { mockMovies } from "utils/constants";
 
 const constructResJSON = (data) => {
   return {
@@ -10,10 +10,10 @@ const constructResJSON = (data) => {
 };
 
 // ToDo: Temporary code till development is done, to avoid maximum calls reached on movies-API.
-const _fetch = (category) =>
+const _fetch = (value) =>
   new Promise((_res, _rej) => {
     setTimeout(() => {
-      const moviesByCategory = mockMovies[category];
+      const moviesByCategory = mockMovies[value];
 
       if (moviesByCategory) {
         _res(constructResJSON(moviesByCategory));

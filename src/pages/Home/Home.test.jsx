@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "utils/test-utils";
 import Home from ".";
 import MoviesByCategory from "./MoviesByCategory";
-import { MOVIE_CATEGORY_OPTIONS } from "constants";
+import { MOVIE_CATEGORY_OPTIONS } from "utils/constants";
 
 jest.mock("./MoviesByCategory", () =>
   jest.fn(() => <div>MoviesByCategory</div>)

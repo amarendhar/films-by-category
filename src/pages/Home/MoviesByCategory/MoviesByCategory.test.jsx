@@ -1,7 +1,11 @@
 import React from "react";
 import { render, screen, waitFor, within } from "utils/test-utils";
 import MoviesByCategory from ".";
-import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "constants";
+import {
+  getImageURL,
+  mockMovies,
+  MOVIE_CATEGORY_OPTIONS,
+} from "utils/constants";
 
 describe("MoviesByCategory", () => {
   it(`Should render with loading state initially`, () => {
@@ -14,6 +18,7 @@ describe("MoviesByCategory", () => {
   });
 
   it(`Should render with movies-list`, async () => {
+    const movies = mockMovies.popular.results;
     const { category } = MOVIE_CATEGORY_OPTIONS[0];
     render(<MoviesByCategory category={category} />);
 
@@ -21,15 +26,14 @@ describe("MoviesByCategory", () => {
       screen.getAllByTestId("list-item");
     });
 
-    expect(screen.getAllByTestId("list-item").length).toEqual(
-      mockMovies.popular.results.length
-    );
+    expect(screen.getAllByTestId("list-item").length).toEqual(movies.length);
 
     screen.getAllByTestId("list-item").forEach((listItem, key) => {
-      expect(
-        within(listItem).getByText(
-          `${mockMovies.popular.results[key].vote_average}/10`
-        )
+      const movie = movies[key];
+      within(listItem).getByText(`${movie.vote_average}/10`);
+      within(listItem).getByText(movie.title);
+      expect(listItem.querySelector("img").src).toEqual(
+        getImageURL(movie.poster_path)
       );
     });
   });
@@ -45,6 +49,6 @@ describe("MoviesByCategory", () => {
     });
     await user.click(screen.getAllByTestId("list-item")[0]);
 
-    screen.getByTestId("details-page");
+    screen.getByTestId("pdp-section");
   });
 });
