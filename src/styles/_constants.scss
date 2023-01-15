@@ -1,7 +1,19 @@
+// Media Query Breakpoints
+$screen-md: 600px;
+$screen-lg: 768px;
+$screen-xl: 992px;
+$screen-xxl: 1200px;
+
+// Spacings
 $space-sm: 5px;
 $space-md: 10px;
 $space-lg: 15px;
 
+// Font
 $font-sm: 14px;
 $font-md: 16px;
 $font-lg: 20px;
+
+$radii-sm: 3px;
+$radii-md: 6px;
+$radii-lg: 9px;

@@ -5,7 +5,7 @@ const Details = () => {
   const { movieId } = useParams();
 
   return (
-    <div>
+    <div data-testid="details-page">
       <div>movieId {movieId}</div>
     </div>
   );

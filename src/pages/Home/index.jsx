@@ -1,12 +1,14 @@
 import React from "react";
 import MoviesByCategory from "./MoviesByCategory";
-import { MOVIE_CATEGORIES } from "../../constants";
+import { MOVIE_CATEGORY_OPTIONS } from "../../constants";
 
 const Home = () => {
   return (
     <>
-      {Object.values(MOVIE_CATEGORIES).map((category) => {
-        return <MoviesByCategory key={category} category={category} />;
+      {MOVIE_CATEGORY_OPTIONS.map(({ title, category }) => {
+        return (
+          <MoviesByCategory key={category} title={title} category={category} />
+        );
       })}
     </>
   );

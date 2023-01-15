@@ -1,27 +1,23 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { mockMovies, MOVIE_CATEGORIES } from "../../../constants";
+import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "../../../constants";
 
 describe("useMoviesByCategory", () => {
-  const initialProps = {
+  const defaultProps = {
     loading: false,
     movies: [],
     error: false,
   };
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it("Should return initial state", () => {
+  it("Should return defaultProps initially", () => {
     const { result } = renderHook(() => useMoviesByCategory());
 
-    expect(result.current).toEqual(initialProps);
+    expect(result.current).toEqual(defaultProps);
   });
 
   it("Should fetch movies for the given category", async () => {
     const { result } = renderHook(() =>
-      useMoviesByCategory({ category: MOVIE_CATEGORIES.POPULAR })
+      useMoviesByCategory(MOVIE_CATEGORY_OPTIONS[0])
     );
 
     await waitFor(() => {

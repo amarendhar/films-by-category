@@ -1,5 +1,42 @@
+@import "./constants";
+
 @mixin center-align {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+@mixin media($size) {
+  // Phones
+  @if $size==sm {
+    @content;
+  }
+
+  // Portrait-Tablets/Large-Phones
+  @if $size==md {
+    @media (min-width: $screen-md) {
+      @content;
+    }
+  }
+
+  // Landscape-Tablets
+  @if $size==lg {
+    @media (min-width: $screen-lg) {
+      @content;
+    }
+  }
+
+  // Desktops
+  @if $size==xl {
+    @media (min-width: $screen-xl) {
+      @content;
+    }
+  }
+
+  // Large-Desktops
+  @if $size==xxl {
+    @media (min-width: $screen-xxl) {
+      @content;
+    }
+  }
 }

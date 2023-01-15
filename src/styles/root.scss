@@ -1,26 +1,32 @@
-@import "constants";
 @import "mixins";
 @import "typography";
+@import "constants";
 
 :global {
   html,
   body,
   #root {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
-
+    overflow-x: hidden;
     font-family: Open-Sans, Sans-Serif, Helvetica;
   }
 
   #root {
     position: relative;
-
     display: flex;
     flex-direction: column;
   }
 
-  * {
+  *,
+  *::after,
+  *::before {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }

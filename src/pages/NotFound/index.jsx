@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const NotFound = () => (
-  <div>
+  <div data-testid="not-found">
     <div>Page Not Found</div>
     <NavLink to="/" className="selected">
       Go Back

@@ -1,4 +1,11 @@
+@import "../../../styles/mixins";
 @import "../../../styles/constants";
+
+.status {
+  @include center-align;
+  width: 100%;
+  height: 100%;
+}
 
 .error {
   margin: $space-lg;
@@ -6,9 +13,72 @@
   color: red;
 }
 
-.title {
+.section {
+  width: 100%;
+}
+
+.section-title {
+  margin: $space-lg;
   font-size: $font-lg;
+  text-align: center;
+
   &::first-letter {
     text-transform: uppercase;
+  }
+}
+
+.list {
+  margin: $space-lg 0;
+  display: flex;
+  overflow-x: auto;
+}
+
+.list-item {
+  margin: $space-md $space-lg;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  @include media(sm) {
+    width: 30vw;
+  }
+  @include media(md) {
+    width: 22vw;
+  }
+  @include media(lg) {
+    width: 20vw;
+  }
+  @include media(xl) {
+    width: 18vw;
+  }
+  @include media(xxl) {
+    width: 200px;
+  }
+}
+
+.list-item-img {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    aspect-ratio: 0.7;
+    border-radius: $radii-md;
+  }
+}
+
+.list-item-info {
+  text-align: center;
+
+  h5 {
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 2;
+    -moz-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    overflow: hidden;
   }
 }
