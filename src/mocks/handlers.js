@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { mockMovies } from "../constants";
+import { mockMovies } from "constants";
 
 const delay = 150;
 

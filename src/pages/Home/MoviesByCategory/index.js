@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Loader } from "../../../components";
+import { Loader } from "components";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { getImageURL } from "../../../constants";
+import { getImageURL } from "constants";
 import styles from "./styles.scss";
 
 // ToDo: NIT: Add `prop-types` npm to type-check the props.
@@ -35,7 +35,7 @@ const MoviesByCategory = ({ title, category }) => {
               data-testid="list-item"
               className={styles["list-item"]}
               aria-label={`View ${title}`}
-              to={`details/${id}`}
+              to={`p/${id}`}
             >
               <div className={styles["list-item-img"]}>
                 <img src={getImageURL(poster_path)} alt={title} />

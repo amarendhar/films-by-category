@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// import { getMoviesURL } from "../../../constants";
-import _fetch from "../../../utils/_fetch";
+// import { getMoviesURL } from "constants";
+import _fetch from "utils/_fetch";
 
 const useMoviesByCategory = ({ category } = {}) => {
   const [loading, setLoading] = useState(false);

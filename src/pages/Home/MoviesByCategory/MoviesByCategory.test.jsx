@@ -1,7 +1,7 @@
 import React from "react";
-import { render, screen, waitFor, within } from "../../../utils/test-utils";
+import { render, screen, waitFor, within } from "utils/test-utils";
 import MoviesByCategory from ".";
-import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "../../../constants";
+import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "constants";
 
 describe("MoviesByCategory", () => {
   it(`Should render with loading state initially`, () => {

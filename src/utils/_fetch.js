@@ -1,4 +1,4 @@
-import { mockMovies } from "../constants";
+import { mockMovies } from "constants";
 
 const constructResJSON = (data) => {
   return {

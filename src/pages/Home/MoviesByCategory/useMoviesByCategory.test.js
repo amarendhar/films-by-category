@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import useMoviesByCategory from "./useMoviesByCategory";
-import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "../../../constants";
+import { mockMovies, MOVIE_CATEGORY_OPTIONS } from "constants";
 
 describe("useMoviesByCategory", () => {
   const defaultProps = {

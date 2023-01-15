@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const Details = () => {
+// Details/Description/Product-Description-Page(PDP)
+const PDP = () => {
   const { movieId } = useParams();
 
   return (
@@ -11,4 +12,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default PDP;

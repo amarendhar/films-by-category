@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Details from "./Details";
+import PDP from "./PDP";
 import NotFound from "./NotFound";
 
-export { Home, Details, NotFound };
+export { Home, PDP, NotFound };

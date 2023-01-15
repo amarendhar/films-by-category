@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-import { Home, Details, NotFound } from "./pages";
+import { Home, PDP, NotFound } from "./pages";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="details/:movieId" element={<Details />} />
+          <Route path="p/:movieId" element={<PDP />} />
           <Route path="*" component={NotFound} />
         </Route>
       </Routes>
