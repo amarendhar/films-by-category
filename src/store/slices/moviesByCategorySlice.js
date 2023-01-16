@@ -12,8 +12,8 @@ export const fetchMoviesByCategory = createAsyncThunk(
   "moviesByCategory/fetchMoviesByCategory",
   async (category, { rejectWithValue }) => {
     try {
-      // const response = await fetch(getMoviesByCategoryURL(category));
-      const response = await _fetch(category);
+      const response = await fetch(getMoviesByCategoryURL(category));
+      // const response = await _fetch(category);
       const data = await response.json();
 
       if (!data?.results || data?.status_message) {
