@@ -9,6 +9,7 @@ describe("usePDP", () => {
     movie: null,
     isAddedToWishlist: false,
     handleWishList: expect.any(Function),
+    wishlistItems: [],
   };
 
   it("Should return defaultProps initially", () => {
@@ -18,19 +19,19 @@ describe("usePDP", () => {
   });
 
   it("Should fetch movie-details for the given movieId", async () => {
-    const { result } = renderHook(() => usePDP({ movieId: "movieId" }));
+    const { result } = renderHook(() => usePDP({ movieId: mockMovies.movieById.id }));
 
     await waitFor(() => {
       expect(result.current).toEqual({
         ...defaultProps,
         status: STATUS.FULFILLED,
-        movie: mockMovies.movieId,
+        movie: mockMovies.movieById,
       });
     });
   });
 
   it("Should add/remove movie from wishlist", async () => {
-    const { result } = renderHook(() => usePDP({ movieId: "movieId" }));
+    const { result } = renderHook(() => usePDP({ movieId: mockMovies.movieById.id }));
 
     expect(result.current.isAddedToWishlist).toEqual(false);
 

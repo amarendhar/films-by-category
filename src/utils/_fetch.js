@@ -9,14 +9,19 @@ const constructResJSON = (data) => {
   };
 };
 
-// ToDo: Temporary code till development is done, to avoid maximum calls reached on movies-API.
+// ToDo: Temporary fetch-polyfill with mock-data till development is done, to avoid maximum calls reached on movies-API.
 const _fetch = (value) =>
   new Promise((_res, _rej) => {
     setTimeout(() => {
-      const moviesByCategory = mockMovies[value];
+      let response = mockMovies[value];
 
-      if (moviesByCategory) {
-        _res(constructResJSON(moviesByCategory));
+      if (value.includes("movieId")) {
+        const movieId = Number(value.replace("movieId=", ""));
+        response = { ...mockMovies.movieById, id: movieId };
+      }
+
+      if (response) {
+        _res(constructResJSON(response));
       } else {
         _res(constructResJSON(mockMovies.notfound));
       }

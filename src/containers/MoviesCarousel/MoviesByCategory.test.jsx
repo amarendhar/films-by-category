@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, waitFor, within } from "utils/test-utils";
-import MoviesByCategory from ".";
+import MoviesCarousel from ".";
 import { getRating } from "utils/movieUtils";
 import {
   getImageURL,
@@ -8,10 +8,10 @@ import {
   MOVIE_CATEGORY_OPTIONS,
 } from "utils/constants";
 
-describe("MoviesByCategory", () => {
+describe("MoviesCarousel", () => {
   it(`Should render with loading state initially`, () => {
     const { title, category } = MOVIE_CATEGORY_OPTIONS[0];
-    render(<MoviesByCategory title={title} category={category} />);
+    render(<MoviesCarousel title={title} category={category} />);
 
     screen.getByText(`${title} Movies`);
     screen.getByTestId("loading");
@@ -21,7 +21,7 @@ describe("MoviesByCategory", () => {
   it(`Should render with movies-list`, async () => {
     const movies = mockMovies.popular.results;
     const { category } = MOVIE_CATEGORY_OPTIONS[0];
-    render(<MoviesByCategory category={category} />);
+    render(<MoviesCarousel category={category} />);
 
     await waitFor(() => {
       screen.getAllByTestId("list-item");
@@ -41,7 +41,7 @@ describe("MoviesByCategory", () => {
 
   it.skip("Should navigate to details-page onClick of list-item", async () => {
     const { user } = render(
-      <MoviesByCategory {...MOVIE_CATEGORY_OPTIONS[0]} />,
+      <MoviesCarousel {...MOVIE_CATEGORY_OPTIONS[0]} />,
       { route: `/` }
     );
 

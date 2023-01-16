@@ -14,7 +14,7 @@ const useMoviesByCategory = ({ category } = {}) => {
       dispatch(fetchMoviesByCategory(category));
     }
   }, [category]);
-
+  
   return {
     status,
     error,

@@ -12,7 +12,7 @@ describe("PDP-Page", () => {
   it(`Should render with loading state initially`, () => {
     const { title, category } = MOVIE_CATEGORY_OPTIONS[0];
     render(<PDP title={title} category={category} />, {
-      route: `/p/movieId`,
+      route: `/p/${mockMovies.movieById.id}`,
     });
 
     screen.getByTestId("loading");
@@ -21,10 +21,10 @@ describe("PDP-Page", () => {
   });
 
   it("Should render product with details", async () => {
-    const movie = mockMovies.movieId;
+    const movie = mockMovies.movieById;
     const { title, category } = MOVIE_CATEGORY_OPTIONS[0];
     render(<PDP title={title} category={category} />, {
-      route: `/p/movieId`,
+      route: `/p/${mockMovies.movieById.id}`,
     });
 
     await waitFor(() => {

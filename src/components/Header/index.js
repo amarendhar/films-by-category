@@ -7,7 +7,7 @@ import { selectWishlist } from "store/slices/wishlistSlice";
 import styles from "./styles.scss";
 
 const Header = () => {
-  const { wishlistIds } = useAppSelector(selectWishlist);
+  const { wishlistItems } = useAppSelector(selectWishlist);
 
   return (
     <header className={styles.container}>
@@ -19,7 +19,7 @@ const Header = () => {
           color="white"
           title="wishlist"
         />
-        {wishlistIds.length > 0 && <span>&nbsp;({wishlistIds.length})</span>}
+        {wishlistItems.length > 0 && <span>&nbsp;({wishlistItems.length})</span>}
       </NavLink>
     </header>
   );

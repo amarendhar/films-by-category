@@ -9,7 +9,7 @@ export const fetchMovieById = createAsyncThunk(
   async (movieId, { rejectWithValue }) => {
     try {
       // const response = await fetch(getMovieByIdURL(movieId));
-      const response = await _fetch('movieId');
+      const response = await _fetch(`movieId=${movieId}`);
       const data = await response.json();
 
       if (!data?.id || data?.status_message) {

@@ -1,5 +1,5 @@
 import React from "react";
-import MoviesByCategory from "./MoviesByCategory";
+import MoviesCarousel from "containers/MoviesCarousel";
 import { MOVIE_CATEGORY_OPTIONS } from "utils/constants";
 
 /**
@@ -14,7 +14,7 @@ const Home = () => {
     <>
       {MOVIE_CATEGORY_OPTIONS.map(({ title, category }) => {
         return (
-          <MoviesByCategory key={category} title={title} category={category} />
+          <MoviesCarousel key={category} title={title} category={category} />
         );
       })}
     </>

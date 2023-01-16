@@ -5,7 +5,7 @@ import {
   movieById,
   moviesNotFound,
   moviesInvalidRequest,
-} from "../mocks";
+} from "mocks";
 
 export const STATUS = {
   IDLE: "idle",
@@ -24,7 +24,7 @@ export const mockMovies = {
   [MOVIE_CATEGORIES.POPULAR]: moviesByPopular,
   [MOVIE_CATEGORIES.TOP_RATED]: moviesByTopRated,
   [MOVIE_CATEGORIES.UPCOMING]: moviesByUpcoming,
-  movieId: movieById,
+  movieById: movieById,
   notfound: moviesNotFound,
   invalid: moviesInvalidRequest,
 };

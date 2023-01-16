@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+.list-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .list {
   position: relative;
   margin: $space-lg 0;

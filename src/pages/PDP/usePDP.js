@@ -6,14 +6,15 @@ import {
   removeFromWishlist,
   selectWishlist,
 } from "store/slices/wishlistSlice";
+import { hasItem } from "utils/movieUtils";
 
 const usePDP = ({ movieId } = {}) => {
   const dispatch = useAppDispatch();
   const { status, error, data } = useAppSelector(selectMovieById);
-  const { wishlistIds } = useAppSelector(selectWishlist);
+  const { wishlistItems } = useAppSelector(selectWishlist);
   const isAddedToWishlist = useMemo(
-    () => wishlistIds.includes(movieId),
-    [wishlistIds]
+    () => hasItem(wishlistItems, movieId),
+    [wishlistItems, movieId]
   );
 
   useEffect(() => {
@@ -24,15 +25,16 @@ const usePDP = ({ movieId } = {}) => {
 
   const handleWishList = useCallback(() => {
     dispatch(
-      isAddedToWishlist ? removeFromWishlist(movieId) : addToWishlist(movieId)
+      isAddedToWishlist ? removeFromWishlist(data) : addToWishlist(data)
     );
-  }, [isAddedToWishlist]);
+  }, [isAddedToWishlist, data]);
 
   return {
     status,
     error,
     movie: data?.id ? data : null,
     isAddedToWishlist,
+    wishlistItems,
     handleWishList,
   };
 };

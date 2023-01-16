@@ -1,6 +1,18 @@
 @import "styles/mixins";
 @import "styles/constants";
 
+.font-popular {
+  font-family: cursive;
+}
+
+.font-top_rated {
+  font-family: fantasy;
+}
+
+.font-upcoming {
+  font-family: monospace;
+}
+
 .pdp-section {
   width: 100%;
 }
