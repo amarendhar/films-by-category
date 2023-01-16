@@ -6,6 +6,16 @@
   justify-content: center;
 }
 
+@mixin clamp($clamp, $orient) {
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-line-clamp: $clamp;
+  -moz-line-clamp: $clamp;
+  -webkit-box-orient: $orient;
+  -moz-box-orient: $orient;
+  overflow: hidden;
+}
+
 @mixin media($size) {
   // Phones
   @if $size==sm {

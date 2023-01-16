@@ -6,9 +6,20 @@
   justify-content: space-between;
   position: sticky;
   padding: $space-lg;
+  font-size: $font-lg;
   background-color: black;
-  color: white;
   box-shadow: $shadow-header;
 
-  font-size: $font-lg;
+  a,
+  svg {
+    color: darken(white, 10%);
+
+    &:hover {
+      color: darken(white, 25%);
+    }
+
+    &:active {
+      color: white;
+    }
+  }
 }

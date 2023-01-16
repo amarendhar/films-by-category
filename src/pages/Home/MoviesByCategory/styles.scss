@@ -20,12 +20,14 @@
 
 .list-item {
   margin: $space-md $space-lg;
+  margin-bottom: $space-xxl;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   border-radius: $radii-lg;
   box-shadow: $shadow-box;
+  overflow: hidden;
   cursor: pointer;
 
   @include media(sm) {
@@ -47,26 +49,23 @@
 
 .list-item-img {
   width: 100%;
-  height: 100%;
 
   img {
     width: 100%;
-    aspect-ratio: 0.7;
-    border-radius: $radii-md;
+    aspect-ratio: $aspect-ratio-poster-image;
   }
 }
 
 .list-item-info {
   text-align: center;
-  padding-bottom: $space-md;
+  padding: $space-md;
+  padding-top: 0;
 
   h5 {
-    display: -webkit-box;
-    display: -moz-box;
-    -webkit-line-clamp: 2;
-    -moz-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    overflow: hidden;
+    @include clamp(2, vertical);
+  }
+
+  h6 {
+    color: $grey;
   }
 }

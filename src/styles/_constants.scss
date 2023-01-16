@@ -8,6 +8,8 @@ $screen-xxl: 1200px;
 $space-sm: 5px;
 $space-md: 10px;
 $space-lg: 15px;
+$space-xl: 20px;
+$space-xxl: 25px;
 
 // Font
 $font-sm: 14px;
@@ -22,8 +24,17 @@ $radii-lg: 9px;
 // colors
 $black: #000;
 $white: #fff;
+$grey: #888;
 $blue-700: #1976d2;
 
 // box-shadows
 $shadow-header: 0 0 5px 0 black;
 $shadow-box: 0px 3px 5px 0px rgb(0 0 0 / 20%);
+
+/**
+ * Most of the images resolution is `500×750`,
+ *  but few images have different resolution `500×714`,
+ *  so `aspect-ratio` provides same resolution irrespective of different resolutions.
+ */
+
+$aspect-ratio-poster-image: calc(500 / 750);

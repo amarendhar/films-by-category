@@ -70,11 +70,16 @@
 .product-description {
   display: grid;
   align-self: flex-start;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 135px 1fr;
   grid-gap: $space-md;
   margin-bottom: $space-lg;
 
   span:nth-child(odd) {
     font-weight: bold;
   }
+}
+
+.buttons-group {
+  display: flex;
+  grid-gap: $space-lg;
 }

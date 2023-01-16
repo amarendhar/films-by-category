@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, waitFor, within } from "utils/test-utils";
 import MoviesByCategory from ".";
+import { getRating } from "utils/movieUtils";
 import {
   getImageURL,
   mockMovies,
@@ -30,7 +31,7 @@ describe("MoviesByCategory", () => {
 
     screen.getAllByTestId("list-item").forEach((listItem, key) => {
       const movie = movies[key];
-      within(listItem).getByText(`${movie.vote_average}/10`);
+      within(listItem).getByText(getRating(movie.vote_average));
       within(listItem).getByText(movie.title);
       expect(listItem.querySelector("img").src).toEqual(
         getImageURL(movie.poster_path)

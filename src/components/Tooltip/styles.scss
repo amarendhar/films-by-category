@@ -1,0 +1,32 @@
+@import 'styles/constants';
+
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  padding: $space-sm $space-md;
+  border-radius: $radii-sm;
+  color: white;
+  background: black;
+  font-size: $font-sm;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  &::before {
+    content: " ";
+    width: 0;
+    height: 0;
+    margin-left: -$space-sm;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    border-width: $space-sm;
+    border-bottom-color: black;
+  }
+}
