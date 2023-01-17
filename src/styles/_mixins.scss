@@ -6,6 +6,25 @@
   justify-content: center;
 }
 
+@keyframes keyframe-fade-in {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fadeIn($duration: 1s, $timing: linear) {
+  animation: keyframe-fade-in $duration $timing;
+}
+
 @mixin clamp($clamp, $orient) {
   display: -webkit-box;
   display: -moz-box;

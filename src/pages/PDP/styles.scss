@@ -40,6 +40,7 @@
 }
 
 .product-img {
+  @include fadeIn(0.5s, ease);
   width: 100%;
   height: 100%;
 

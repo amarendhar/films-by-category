@@ -44,3 +44,5 @@ export const getMoviesByCategoryURL = (category) =>
 export const getMovieByIdURL = (movieId) =>
   `${BASE_URL}/${movieId}?api_key=${API_KEY}`;
 export const getImageURL = (path) => `${BASE_IMAGE_URL}/${path}`;
+
+export const isMock = process.env.NODE_ENV === "none";

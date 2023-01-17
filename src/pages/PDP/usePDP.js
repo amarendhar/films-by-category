@@ -25,7 +25,7 @@ const usePDP = ({ movieId } = {}) => {
 
   const handleWishList = useCallback(() => {
     dispatch(
-      isAddedToWishlist ? removeFromWishlist(data) : addToWishlist(data)
+      isAddedToWishlist ? removeFromWishlist(data.id) : addToWishlist(data)
     );
   }, [isAddedToWishlist, data]);
 

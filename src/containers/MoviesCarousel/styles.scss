@@ -24,6 +24,7 @@
 }
 
 .list-item {
+  @include fadeIn(0.5s, ease);
   margin: $space-md $space-lg;
   margin-bottom: $space-xxl;
   display: flex;

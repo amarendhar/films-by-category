@@ -1,28 +1,31 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
+  isMock,
   STATUS,
   ERROR_RESPONSE,
   getMoviesByCategoryURL,
 } from "utils/constants";
 import _fetch from "utils/_fetch";
 
-const initialState = { status: STATUS.IDLE, error: null, data: {} };
+export const initialState = { status: STATUS.IDLE, error: null, data: {} };
 
 export const fetchMoviesByCategory = createAsyncThunk(
   "moviesByCategory/fetchMoviesByCategory",
   async (category, { rejectWithValue }) => {
     try {
-      const response = await fetch(getMoviesByCategoryURL(category));
-      // const response = await _fetch(category);
+      const response = isMock
+        ? await _fetch(category)
+        : await fetch(getMoviesByCategoryURL(category));
       const data = await response.json();
 
       if (!data?.results || data?.status_message) {
+        temp = data?.status_message || ERROR_RESPONSE;
         throw new Error(data?.status_message || ERROR_RESPONSE);
       }
 
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

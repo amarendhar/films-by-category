@@ -4,7 +4,8 @@
   "description": "films by category with details/description and wish-list page.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server .",
+    "start": "NODE_ENV=development webpack-dev-server .",
+    "mock": "NODE_ENV=none webpack-dev-server .",
     "test": "jest --watchAll",
     "build": "webpack ."
   },

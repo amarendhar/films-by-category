@@ -1,15 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { STATUS, ERROR_RESPONSE, getMovieByIdURL } from "utils/constants";
+import {
+  isMock,
+  STATUS,
+  ERROR_RESPONSE,
+  getMovieByIdURL,
+} from "utils/constants";
 import _fetch from "utils/_fetch";
 
-const initialState = { status: STATUS.IDLE, error: null, data: {} };
+export const initialState = { status: STATUS.IDLE, error: null, data: {} };
 
 export const fetchMovieById = createAsyncThunk(
   "movieById/fetchMovieById",
   async (movieId, { rejectWithValue }) => {
     try {
-      const response = await fetch(getMovieByIdURL(movieId));
-      // const response = await _fetch(`movieId=${movieId}`);
+      const response = isMock
+        ? await _fetch(`movieId=${movieId}`)
+        : await fetch(getMovieByIdURL(movieId));
       const data = await response.json();
 
       if (!data?.id || data?.status_message) {
@@ -18,7 +24,7 @@ export const fetchMovieById = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

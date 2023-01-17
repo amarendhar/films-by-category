@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { hasItem } from "utils/movieUtils";
 
-const initialState = {
+export const initialState = {
   wishlistItems: [],
 };
 
@@ -16,7 +16,7 @@ export const wishlistSlice = createSlice({
     },
     removeFromWishlist: (state, action) => {
       state.wishlistItems = state.wishlistItems.filter(
-        (wishlistItem) => wishlistItem.id !== action.payload.id
+        (wishlistItem) => wishlistItem.id !== action.payload
       );
     },
   },
